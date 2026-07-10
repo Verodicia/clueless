@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+const getAssetUrl = (src) => {
+    return import.meta.env.BASE_URL + src.slice(1);
+};
+
 const tops = [
     { id: '1beetop', src: '/clothes/top/1beetop.png', name: 'Bee Top', style: 'style1' },
     { id: '2scrubtop', src: '/clothes/top/2Scrubtop.png', name: 'Scrub Top', style: 'style2' },
@@ -10,7 +14,7 @@ const tops = [
     { id: '7charlie', src: '/clothes/top/7charlie.png', name: 'Charlie', style: 'style7' },
     { id: '8whiteshirt', src: '/clothes/top/8whiteshirt.png', name: 'White Shirt', style: 'style8' },
     { id: '9smart', src: '/clothes/top/9smart.png', name: 'Smart Top', style: 'style9' }
-];
+].map(item => ({ ...item, src: getAssetUrl(item.src) }));
 
 const bottoms = [
     { id: '1yellowtartleg', src: '/clothes/bottom/1yellowtartleg.png', name: 'Yellow Tart Pants', style: 'style1' },
@@ -22,10 +26,10 @@ const bottoms = [
     { id: '7kilt', src: '/clothes/bottom/7kilt.png', name: 'Kilt', style: 'style7' },
     { id: '8suittrousers', src: '/clothes/bottom/8suittrousers.png', name: 'Suit Trousers', style: 'style8' },
     { id: '9smartwhite', src: '/clothes/bottom/9smartwhite.png', name: 'Smart White Pants', style: 'style9' }
-];
+].map(item => ({ ...item, src: getAssetUrl(item.src) }));
 
 // Outfit images for each style - ordered for staged reveal
-const outfitImages = {
+const outfitImagesRaw = {
     style1: ['/clothes/dress/1-1yellow.png', '/clothes/dress/1-2yellow.png', '/clothes/dress/1-3yellow.png', '/clothes/dress/1-4yellow.png'],
     style2: ['/clothes/dress/2-1scrub.png', '/clothes/dress/2-2scrubs.png'],
     style3: ['/clothes/dress/3-1levis.png', '/clothes/dress/3-2levis.png'],
@@ -36,6 +40,11 @@ const outfitImages = {
     style8: ['/clothes/dress/8-1.png', '/clothes/dress/8-2.png'],
     style9: ['/clothes/dress/9-1smart.png', '/clothes/dress/9-2smart.png']
 };
+
+const outfitImages = Object.keys(outfitImagesRaw).reduce((acc, key) => {
+    acc[key] = outfitImagesRaw[key].map(src => getAssetUrl(src));
+    return acc;
+}, {});
 
 const Wardrobe = () => {
     const [topIndex, setTopIndex] = useState(0);
@@ -84,7 +93,7 @@ const Wardrobe = () => {
     }, [isAutoPlayingBottom, bottomIndex]);
 
     const playScrollSound = () => {
-        const scroll = new Audio('/scroll.mp3');
+        const scroll = new Audio(getAssetUrl('/scroll.mp3'));
         scroll.volume = 0.3;
         scroll.play().catch(e => console.log('Scroll audio play failed:', e));
     };
@@ -162,7 +171,7 @@ const Wardrobe = () => {
         if (topStyle !== bottomStyle) {
             setShowMismatch(true);
             // Play mismatch sound
-            const audio = new Audio('/wrong-answer-buzzer.mp3');
+            const audio = new Audio(getAssetUrl('/wrong-answer-buzzer.mp3'));
             audio.play().catch(e => console.log('Audio play failed:', e));
             setTimeout(() => setShowMismatch(false), 2500);
         } else {
@@ -187,7 +196,7 @@ const Wardrobe = () => {
                 setMatchPhase('outfit');
                 setOutfitStage(0);
                 setIsAnimating(true);
-                const sparkle = new Audio('/sparkle.mp3');
+                const sparkle = new Audio(getAssetUrl('/sparkle.mp3'));
                 sparkle.play().catch(e => console.log('Sparkle audio play failed:', e));
                 // Animation ends after 1 second
                 setTimeout(() => setIsAnimating(false), 1000);
@@ -198,7 +207,7 @@ const Wardrobe = () => {
                 setTimeout(() => {
                     setOutfitStage(i);
                     setIsAnimating(true);
-                    const sparkle = new Audio('/sparkle.mp3');
+                    const sparkle = new Audio(getAssetUrl('/sparkle.mp3'));
                     sparkle.play().catch(e => console.log('Sparkle audio play failed:', e));
                     // Animation ends after 1 second
                     setTimeout(() => setIsAnimating(false), 1000);
@@ -311,7 +320,7 @@ const Wardrobe = () => {
                     }}>FALL'S FASHIONS</button>
                     <span style={{ visibility: 'hidden' }}>CLARK'S WARDROBE</span>
                 </div>
-                <div style={{ flex: 1, padding: '0', display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#d4d0c8', backgroundImage: "url('/leopard-bg.png')", backgroundSize: '100% 100%', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ flex: 1, padding: '0', display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#d4d0c8', backgroundImage: `url(${getAssetUrl('/leopard-bg.png')})`, backgroundSize: '100% 100%', position: 'relative', overflow: 'hidden' }}>
 
                     {/* Main Content Area */}
                     <div style={{ display: 'flex', flexDirection: 'column', flex: 1, width: '100%', alignItems: 'center', justifyContent: 'stretch', padding: '0' }}>
@@ -398,7 +407,7 @@ const Wardrobe = () => {
                                             {matchPhase === 'wireframe' && (
                                                 <>
                                                     <img
-                                                        src="/clothes/wireframe.png"
+                                                        src={getAssetUrl('/clothes/wireframe.png')}
                                                         alt="Wireframe"
                                                         style={{
                                                             width: '100%',
@@ -431,7 +440,7 @@ const Wardrobe = () => {
                                                 }}>
                                                     {/* Base wireframe image */}
                                                     <img
-                                                        src="/clothes/wireframe.png"
+                                                        src={getAssetUrl('/clothes/wireframe.png')}
                                                         alt="Wireframe"
                                                         style={{
                                                             width: '100%',
@@ -442,7 +451,7 @@ const Wardrobe = () => {
                                                     />
                                                     {/* Topless image that swipes down from top */}
                                                     <img
-                                                        src="/clothes/topless.png"
+                                                        src={getAssetUrl('/clothes/topless.png')}
                                                         alt="Ready for outfit"
                                                         style={{
                                                             position: 'absolute',
@@ -469,7 +478,7 @@ const Wardrobe = () => {
                                                 }}>
                                                     {/* Base topless image - hides when outfit appears */}
                                                     <img
-                                                        src="/clothes/topless.png"
+                                                        src={getAssetUrl('/clothes/topless.png')}
                                                         alt="Base"
                                                         style={{
                                                             width: 'auto',

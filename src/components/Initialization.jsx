@@ -65,7 +65,7 @@ const Initialization = () => {
                                     }}
                                 >
                                     <img
-                                        src="/hanger.svg"
+                                        src={import.meta.env.BASE_URL + 'hanger.svg'}
                                         alt="hanger"
                                         style={{
                                             width: '70%',
@@ -84,7 +84,7 @@ const Initialization = () => {
 
             {/* Centered Logo with pop-in effect */}
             <img
-                src="public/cluelesslogo.svg"
+                src={import.meta.env.BASE_URL + 'Cluelesslogo.svg'}
                 alt="Clueless Logo"
                 style={{
                     position: 'absolute',
