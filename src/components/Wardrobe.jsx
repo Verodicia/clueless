@@ -274,7 +274,7 @@ const Wardrobe = () => {
                     }}>
                         <span style={{
                             fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
-                            fontSize: 'clamp(48px, 20vw, 320px)',
+                            fontSize: 'clamp(32px, 12vw, 72px)',
                             fontWeight: 'bold',
                             color: '#1a0a4a',
                             textShadow: '3px 3px 0 #9080d0, -1px -1px 0 #c0b0ff',
@@ -293,12 +293,12 @@ const Wardrobe = () => {
                     borderBottom: '6px solid #5e5e5eff',
                     width: '100%',
                     height: '6vh',
-                    padding: '10px 20px',
+                    padding: '0 20px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
-                    fontSize: '48px',
+                    fontSize: 'clamp(18px, 2.5vw, 42px)',
                     color: '#fff',
                     fontWeight: 'bold',
                     boxSizing: 'border-box'
@@ -311,8 +311,8 @@ const Wardrobe = () => {
                         borderBottom: '3px solid #404040',
                         borderRight: '3px solid #404040',
                         boxShadow: '2px 2px 0 #000, inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf',
-                        padding: '8px 20px',
-                        fontSize: '48px',
+                        padding: '4px 12px',
+                        fontSize: 'clamp(14px, 2.5vw, 42px)',
                         fontWeight: 'bold',
                         fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
                         color: '#ffffff',
@@ -320,7 +320,20 @@ const Wardrobe = () => {
                     }}>FALL'S FASHIONS</button>
                     <span style={{ visibility: 'hidden' }}>CLARK'S WARDROBE</span>
                 </div>
-                <div style={{ flex: 1, padding: '0', display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#d4d0c8', backgroundImage: `url(${getAssetUrl('/leopard-bg.png')})`, backgroundSize: '100% 100%', position: 'relative', overflow: 'hidden' }}>
+                <div style={{
+                    flex: 1,
+                    padding: '0 0 16px 0',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    backgroundColor: '#d4d0c8',
+                    backgroundImage: `url(${getAssetUrl('/leopard-bg.png')})`,
+                    backgroundSize: '100% 100%',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    borderBottom: '6px solid #5e5e5eff',
+                    boxSizing: 'border-box'
+                }}>
 
                     {/* Main Content Area */}
                     <div style={{ display: 'flex', flexDirection: 'column', flex: 1, width: '100%', alignItems: 'center', justifyContent: 'stretch', padding: '0' }}>
@@ -575,45 +588,45 @@ const Wardrobe = () => {
                             </button>
                         </div>
                     </div>
+                </div>
 
-                    {/* Footer Menu */}
-                    <div style={{
-                        backgroundColor: '#000000ff',
-                        borderTop: '10px solid #5e5e5eff',
-                        width: '100%',
-                        height: '6vh',
-                        padding: '6px',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        gap: '15px',
-                        flexWrap: 'wrap',
+                {/* Footer Menu */}
+                <div style={{
+                    backgroundColor: '#000000ff',
+                    width: '100%',
+                    height: '6vh',
+                    padding: '6px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '15px',
+                    flexWrap: 'wrap',
+                    fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
+                    fontSize: 'clamp(14px, 2.5vw, 32px)',
+                    color: '#fff',
+                    fontWeight: 'bold'
+                }}>
+                    <span>SHOES</span>
+                    <span>JEWELRY</span>
+                    <span>SCARVES</span>
+                    <span>PANTYHOSE</span>
+                    <span>UNDERWEAR</span>
+                    <span>PANTS</span>
+                    <span>SWEATER</span>
+                    <button className="lavender-hover" style={{
+                        backgroundColor: '#000000',
+                        borderTop: '3px solid #fff',
+                        borderLeft: '3px solid #fff',
+                        borderBottom: '3px solid #404040',
+                        borderRight: '3px solid #404040',
+                        boxShadow: '2px 2px 0 #000, inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf',
+                        padding: '4px 12px',
+                        fontSize: 'clamp(12px, 2.5vw, 32px)',
+                        fontWeight: 'bold',
                         fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
-                        fontSize: '48px',
-                        color: '#fff',
-                        fontWeight: 'bold'
-                    }}>
-                        <span>SHOES</span>
-                        <span>JEWELRY</span>
-                        <span>SCARVES</span>
-                        <span>PANTYHOSE</span>
-                        <span>UNDERWEAR</span>
-                        <span>PANTS</span>
-                        <span>SWEATER</span>
-                        <button className="lavender-hover" style={{
-                            backgroundColor: '#000000',
-                            borderTop: '3px solid #fff',
-                            borderLeft: '3px solid #fff',
-                            borderBottom: '3px solid #404040',
-                            borderRight: '3px solid #404040',
-                            boxShadow: '2px 2px 0 #000, inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf',
-                            padding: '4px 12px',
-                            fontSize: '48px',
-                            fontWeight: 'bold',
-                            fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
-                            color: '#ffffff',
-                            cursor: 'pointer'
-                        }}>MORE...</button>
-                    </div>
+                        color: '#ffffff',
+                        cursor: 'pointer'
+                    }}>MORE...</button>
                 </div>
             </div>
         </>
@@ -756,7 +769,7 @@ const navButtonMidStyle = {
 // Button label text style
 const buttonLabelStyle = {
     fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
-    fontSize: 'clamp(28px, 8vw, 88px)',
+    fontSize: 'clamp(14px, 3.2vw, 32px)',
     fontWeight: 'bold',
     color: '#1a1a1a',
     textTransform: 'uppercase',
@@ -766,7 +779,7 @@ const buttonLabelStyle = {
 // Arrow/symbol styling
 const arrowStyle = {
     color: '#2a2a2a',
-    fontSize: 'clamp(16px, 12vh, 70px)',
+    fontSize: 'clamp(14px, 4vh, 44px)',
     fontWeight: 'bold'
 };
 

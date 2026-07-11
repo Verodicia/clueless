@@ -8,6 +8,10 @@
     font-display: swap;
 }
 
+
+.window, .window * {
+    box-sizing: border-box;
+}
 /* Mac System 7 / Classic Mac Aesthetic */
 :root {
     --mac-gray: #DDDDDD;
