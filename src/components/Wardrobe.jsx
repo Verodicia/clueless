@@ -274,7 +274,7 @@ const Wardrobe = () => {
                     }}>
                         <span style={{
                             fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
-                            fontSize: 'clamp(48px, 20vw, 320px)',
+                            fontSize: 'clamp(32px, 6vw, 72px)',
                             fontWeight: 'bold',
                             color: '#1a0a4a',
                             textShadow: '3px 3px 0 #9080d0, -1px -1px 0 #c0b0ff',
@@ -286,19 +286,19 @@ const Wardrobe = () => {
                 </div>
             )}
 
-            <div className="window" style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', fontSize: '20px', border: 'none' }}>
+            <div className="window" style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column', fontSize: '14px', border: 'none' }}>
                 {/* Header Bar - styled like footer */}
                 <div style={{
                     backgroundColor: '#000000ff',
                     borderBottom: '6px solid #5e5e5eff',
                     width: '100%',
                     height: '6vh',
-                    padding: '10px 20px',
+                    padding: '0 20px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
-                    fontSize: '48px',
+                    fontSize: 'clamp(16px, 1.8vw, 24px)',
                     color: '#fff',
                     fontWeight: 'bold',
                     boxSizing: 'border-box'
@@ -311,14 +311,14 @@ const Wardrobe = () => {
                         borderBottom: '3px solid #404040',
                         borderRight: '3px solid #404040',
                         boxShadow: '2px 2px 0 #000, inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf',
-                        padding: '8px 20px',
-                        fontSize: '48px',
+                        padding: '4px 16px',
+                        fontSize: 'clamp(14px, 1.6vw, 20px)',
                         fontWeight: 'bold',
                         fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
                         color: '#ffffff',
                         cursor: 'pointer'
                     }}>FALL'S FASHIONS</button>
-                    <span style={{ visibility: 'hidden' }}>CLARK'S WARDROBE</span>
+                    <span style={{ visibility: 'hidden', fontSize: 'clamp(16px, 1.8vw, 24px)' }}>CLARK'S WARDROBE</span>
                 </div>
                 <div style={{ flex: 1, padding: '0', display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#d4d0c8', backgroundImage: `url(${getAssetUrl('/leopard-bg.png')})`, backgroundSize: '100% 100%', position: 'relative', overflow: 'hidden' }}>
 
@@ -411,7 +411,7 @@ const Wardrobe = () => {
                                                         alt="Wireframe"
                                                         style={{
                                                             width: '100%',
-                                                            height: '79vh',
+                                                            height: '76vh',
                                                             objectFit: 'contain'
                                                         }}
                                                     />
@@ -432,7 +432,7 @@ const Wardrobe = () => {
                                             {matchPhase === 'topless' && (
                                                 <div style={{
                                                     width: '100%',
-                                                    height: '79vh',
+                                                    height: '76vh',
                                                     display: 'flex',
                                                     alignItems: 'center',
                                                     justifyContent: 'center',
@@ -444,7 +444,7 @@ const Wardrobe = () => {
                                                         alt="Wireframe"
                                                         style={{
                                                             width: '100%',
-                                                            height: '79vh',
+                                                            height: '76vh',
                                                             objectFit: 'contain',
                                                             animation: 'hideFromTop 1s ease-out forwards'
                                                         }}
@@ -456,7 +456,7 @@ const Wardrobe = () => {
                                                         style={{
                                                             position: 'absolute',
                                                             width: 'auto',
-                                                            height: '79vh',
+                                                            height: '76vh',
                                                             maxWidth: '100%',
                                                             maxHeight: '100%',
                                                             objectFit: 'contain',
@@ -470,7 +470,7 @@ const Wardrobe = () => {
                                             {matchPhase === 'outfit' && currentStyle && (
                                                 <div style={{
                                                     width: '100%',
-                                                    height: '79vh',
+                                                    height: '76vh',
                                                     display: 'flex',
                                                     alignItems: 'center',
                                                     justifyContent: 'center',
@@ -482,7 +482,7 @@ const Wardrobe = () => {
                                                         alt="Base"
                                                         style={{
                                                             width: 'auto',
-                                                            height: '79vh',
+                                                            height: '68vh',
                                                             maxWidth: '100%',
                                                             maxHeight: '100%',
                                                             objectFit: 'contain',
@@ -498,7 +498,7 @@ const Wardrobe = () => {
                                                             style={{
                                                                 position: 'absolute',
                                                                 width: 'auto',
-                                                                height: '79vh',
+                                                                height: '68vh',
                                                                 maxWidth: '100%',
                                                                 maxHeight: '100%',
                                                                 objectFit: 'contain',
@@ -516,7 +516,7 @@ const Wardrobe = () => {
                                                             style={{
                                                                 position: 'absolute',
                                                                 width: 'auto',
-                                                                height: '79vh',
+                                                                height: '68vh',
                                                                 maxWidth: '100%',
                                                                 maxHeight: '100%',
                                                                 objectFit: 'contain',
@@ -579,18 +579,20 @@ const Wardrobe = () => {
                     {/* Footer Menu */}
                     <div style={{
                         backgroundColor: '#000000ff',
-                        borderTop: '10px solid #5e5e5eff',
+                        borderTop: '6px solid #5e5e5eff',
                         width: '100%',
                         height: '6vh',
-                        padding: '6px',
+                        padding: '0 10px',
                         display: 'flex',
+                        alignItems: 'center',
                         justifyContent: 'center',
-                        gap: '15px',
-                        flexWrap: 'wrap',
+                        gap: 'clamp(8px, 1.2vw, 15px)',
+                        flexWrap: 'nowrap',
                         fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
-                        fontSize: '48px',
+                        fontSize: 'clamp(11px, 1.3vw, 18px)',
                         color: '#fff',
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        boxSizing: 'border-box'
                     }}>
                         <span>SHOES</span>
                         <span>JEWELRY</span>
@@ -606,8 +608,8 @@ const Wardrobe = () => {
                             borderBottom: '3px solid #404040',
                             borderRight: '3px solid #404040',
                             boxShadow: '2px 2px 0 #000, inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf',
-                            padding: '4px 12px',
-                            fontSize: '48px',
+                            padding: '2px 10px',
+                            fontSize: 'clamp(11px, 1.3vw, 18px)',
                             fontWeight: 'bold',
                             fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
                             color: '#ffffff',
@@ -624,8 +626,8 @@ const Wardrobe = () => {
 const itemDisplayFrame = {
     width: '50vw',
     maxWidth: '870px',
-    height: '35vh',
-    minHeight: '150px',
+    height: '36vh',
+    minHeight: '120px',
     backgroundColor: '#ffffffff',
     borderTop: '4px solid #fff',
     borderLeft: '4px solid #fff',
@@ -636,7 +638,8 @@ const itemDisplayFrame = {
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    padding: '10px'
+    padding: '8px',
+    boxSizing: 'border-box'
 };
 
 // Frame for bottom clothing display - 50% taller than top
@@ -644,8 +647,8 @@ const bottomDisplayFrame = {
     width: '50vw',
     maxWidth: '870px',
     height: 'auto',
-    minHeight: '150px',
-    maxHeight: '55vh',  // 50% more than 37vh
+    minHeight: '120px',
+    maxHeight: '48vh',
     backgroundColor: '#ffffffff',
     borderTop: '4px solid #fff',
     borderLeft: '4px solid #fff',
@@ -656,7 +659,8 @@ const bottomDisplayFrame = {
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    padding: '10px'
+    padding: '8px',
+    boxSizing: 'border-box'
 };
 
 // Button bar for navigation
@@ -664,8 +668,8 @@ const buttonBarStyle = {
     display: 'flex',
     width: '50vw',
     maxWidth: '880px',
-    height: '7vh',
-    minHeight: '50px',
+    height: '8vh',
+    minHeight: '40px',
     backgroundColor: '#c0c0c0',
     borderTop: '6px solid #fff',
     borderLeft: '6px solid #fff',
@@ -673,15 +677,16 @@ const buttonBarStyle = {
     borderRight: '6px solid #404040',
     boxShadow: '2px 2px 0 #000',
     marginTop: '2px',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    boxSizing: 'border-box'
 };
 
 // Side button (BROWSE) - 3D beveled, double height of nav bar, aligned to bottom
 const sideButtonStyle = {
     width: '20vw',
     minWidth: '70px',
-    height: 'calc(12vh + 16px)',
-    minHeight: '116px',
+    height: 'calc(12vh + 10px)',
+    minHeight: '90px',
     backgroundColor: '#c0c0c0',
     borderTop: '8px solid #fff',
     borderLeft: '8px solid #fff',
@@ -692,17 +697,18 @@ const sideButtonStyle = {
     alignItems: 'center',
     justifyContent: 'center',
     cursor: 'pointer',
-    padding: '10px',
+    padding: '8px',
     alignSelf: 'flex-end',
-    marginBottom: '0'
+    marginBottom: '0',
+    boxSizing: 'border-box'
 };
 
 // Side button (DRESS ME) - 3D beveled, double height of nav bar
 const sideButtonStyleRight = {
     width: '20vw',
     minWidth: '70px',
-    height: 'calc(12vh + 16px)',
-    minHeight: '116px',
+    height: 'calc(12vh + 10px)',
+    minHeight: '90px',
     backgroundColor: '#c0c0c0',
     borderTop: '8px solid #fff',
     borderLeft: '8px solid #fff',
@@ -714,9 +720,10 @@ const sideButtonStyleRight = {
     alignItems: 'center',
     justifyContent: 'center',
     cursor: 'pointer',
-    padding: '10px',
+    padding: '8px',
     alignSelf: 'flex-end',
-    marginBottom: '0'
+    marginBottom: '0',
+    boxSizing: 'border-box'
 };
 
 // Nav button (left/right arrows) - 3D beveled
@@ -756,7 +763,7 @@ const navButtonMidStyle = {
 // Button label text style
 const buttonLabelStyle = {
     fontFamily: 'ChicagoFLF, Chicago, Geneva, sans-serif',
-    fontSize: 'clamp(28px, 8vw, 88px)',
+    fontSize: 'clamp(14px, 3vw, 32px)',
     fontWeight: 'bold',
     color: '#1a1a1a',
     textTransform: 'uppercase',
@@ -766,7 +773,7 @@ const buttonLabelStyle = {
 // Arrow/symbol styling
 const arrowStyle = {
     color: '#2a2a2a',
-    fontSize: 'clamp(16px, 12vh, 70px)',
+    fontSize: 'clamp(18px, 10vh, 30px)',
     fontWeight: 'bold'
 };
 
